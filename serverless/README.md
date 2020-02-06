@@ -15,9 +15,9 @@ This example demonstrates how to setup a [RESTful Web Services](https://en.wikip
 
 ## Structure
 
-This service has a separate directory for all the todo operations. For each operation exactly one file exists e.g. `todos/delete.py`. In each of these files there is exactly one function defined.
+This service has a separate directory for all the toil operations. For each operation exactly one file exists e.g. `toils/delete.py`. In each of these files there is exactly one function defined.
 
-The idea behind the `todos` directory is that in case you want to create a service containing multiple resources e.g. users, notes, comments you could do so in the same service. While this is certainly possible you might consider creating a separate service for each resource. It depends on the use-case and your preference.
+The idea behind the `toils` directory is that in case you want to create a service containing multiple resources e.g. users, notes, comments you could do so in the same service. While this is certainly possible you might consider creating a separate service for each resource. It depends on the use-case and your preference.
 
 ## Use-cases
 
@@ -55,11 +55,11 @@ region: us-east-1
 api keys:
   None
 endpoints:
-  POST - https://45wf34z5yf.execute-api.us-east-1.amazonaws.com/dev/todos
-  GET - https://45wf34z5yf.execute-api.us-east-1.amazonaws.com/dev/todos
-  GET - https://45wf34z5yf.execute-api.us-east-1.amazonaws.com/dev/todos/{id}
-  PUT - https://45wf34z5yf.execute-api.us-east-1.amazonaws.com/dev/todos/{id}
-  DELETE - https://45wf34z5yf.execute-api.us-east-1.amazonaws.com/dev/todos/{id}
+  POST - https://45wf34z5yf.execute-api.us-east-1.amazonaws.com/dev/toils
+  GET - https://45wf34z5yf.execute-api.us-east-1.amazonaws.com/dev/toils
+  GET - https://45wf34z5yf.execute-api.us-east-1.amazonaws.com/dev/toils/{id}
+  PUT - https://45wf34z5yf.execute-api.us-east-1.amazonaws.com/dev/toils/{id}
+  DELETE - https://45wf34z5yf.execute-api.us-east-1.amazonaws.com/dev/toils/{id}
 functions:
   serverless-rest-api-with-dynamodb-dev-update: arn:aws:lambda:us-east-1:488110005556:function:serverless-rest-api-with-dynamodb-dev-update
   serverless-rest-api-with-dynamodb-dev-get: arn:aws:lambda:us-east-1:488110005556:function:serverless-rest-api-with-dynamodb-dev-get
@@ -70,12 +70,12 @@ functions:
 
 ## Usage
 
-You can create, retrieve, update, or delete todos with the following commands:
+You can create, retrieve, update, or delete toils with the following commands:
 
 ### Create a Todo
 
 ```bash
-curl -X POST https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos --data '{ "text": "Learn Serverless" }'
+curl -X POST https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/toils --data '{ "text": "Learn Serverless" }'
 ```
 
 No output
@@ -83,7 +83,7 @@ No output
 ### List all Todos
 
 ```bash
-curl https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos
+curl https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/toils
 ```
 
 Example output:
@@ -94,8 +94,8 @@ Example output:
 ### Get one Todo
 
 ```bash
-# Replace the <id> part with a real id from your todos table
-curl https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos/<id>
+# Replace the <id> part with a real id from your toils table
+curl https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/toils/<id>
 ```
 
 Example Result:
@@ -106,8 +106,8 @@ Example Result:
 ### Update a Todo
 
 ```bash
-# Replace the <id> part with a real id from your todos table
-curl -X PUT https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos/<id> --data '{ "text": "Learn Serverless", "checked": true }'
+# Replace the <id> part with a real id from your toils table
+curl -X PUT https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/toils/<id> --data '{ "text": "Learn Serverless", "checked": true }'
 ```
 
 Example Result:
@@ -118,8 +118,8 @@ Example Result:
 ### Delete a Todo
 
 ```bash
-# Replace the <id> part with a real id from your todos table
-curl -X DELETE https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos/<id>
+# Replace the <id> part with a real id from your toils table
+curl -X DELETE https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/toils/<id>
 ```
 
 No output

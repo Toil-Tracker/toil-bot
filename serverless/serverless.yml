@@ -20,42 +20,42 @@ provider:
 
 functions:
   create:
-    handler: todos/create.create
+    handler: toils/create.create
     events:
       - http:
-          path: todos
+          path: toils
           method: post
           cors: true
 
   list:
-    handler: todos/list.list
+    handler: toils/list.list
     events:
       - http:
-          path: todos
+          path: toils
           method: get
           cors: true
 
   get:
-    handler: todos/get.get
+    handler: toils/get.get
     events:
       - http:
-          path: todos/{id}
+          path: toils/{id}
           method: get
           cors: true
 
   update:
-    handler: todos/update.update
+    handler: toils/update.update
     events:
       - http:
-          path: todos/{id}
+          path: toils/{id}
           method: put
           cors: true
 
   delete:
-    handler: todos/delete.delete
+    handler: toils/delete.delete
     events:
       - http:
-          path: todos/{id}
+          path: toils/{id}
           method: delete
           cors: true
 

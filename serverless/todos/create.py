@@ -13,7 +13,7 @@ def create(event, context):
     data = json.loads(event['body'])
     if 'text' not in data:
         logging.error("Validation Failed")
-        raise Exception("Couldn't create the todo item.")
+        raise Exception("Couldn't create the toil item.")
     
     timestamp = str(datetime.utcnow().timestamp())
 
@@ -27,7 +27,7 @@ def create(event, context):
         'updatedAt': timestamp,
     }
 
-    # write the todo to the database
+    # write the toil to the database
     table.put_item(Item=item)
 
     # create a response
