@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "11b19f29-a391-42ca-af9e-0f27bb2d2904",
+		"name": "toil-bot-api-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST toil",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "'{ \"text\": \"Learn Serverless\" }'",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://io9c7lnm0h.execute-api.us-east-1.amazonaws.com/dev/toils",
+					"protocol": "https",
+					"host": [
+						"io9c7lnm0h",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"toils"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST toils",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://io9c7lnm0h.execute-api.us-east-1.amazonaws.com/dev/toils",
+					"protocol": "https",
+					"host": [
+						"io9c7lnm0h",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"toils"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
