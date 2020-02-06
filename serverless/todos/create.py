@@ -10,10 +10,10 @@ dynamodb = boto3.resource('dynamodb')
 
 
 def create(event, context):
-    data = json.loads(event['body'])
-    event = json.loads(context)
-    print("Data obj: {}".format(data))
+    #data = json.loads(event['body'])
+    #event = json.loads(context)
     print("Event obj: {}".format(event))
+    print("Context obj: {}".format(context))
     if 'text' not in data:
         logging.error("Validation Failed")
         raise Exception("Couldn't create the todo item.")
