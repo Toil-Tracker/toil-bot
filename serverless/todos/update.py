@@ -3,7 +3,7 @@ import time
 import logging
 import os
 
-from toils import decimalencoder
+from todos import decimalencoder
 import boto3
 dynamodb = boto3.resource('dynamodb')
 
@@ -12,27 +12,27 @@ def update(event, context):
     data = json.loads(event['body'])
     if 'text' not in data or 'checked' not in data:
         logging.error("Validation Failed")
-        raise Exception("Couldn't update the toil item.")
+        raise Exception("Couldn't update the todo item.")
         return
 
     timestamp = int(time.time() * 1000)
 
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
 
-    # update the toil in the database
+    # update the todo in the database
     result = table.update_item(
         Key={
             'id': event['pathParameters']['id']
         },
         ExpressionAttributeNames={
-          '#toil_text': 'text',
+          '#todo_text': 'text',
         },
         ExpressionAttributeValues={
           ':text': data['text'],
           ':checked': data['checked'],
           ':updatedAt': timestamp,
         },
-        UpdateExpression='SET #toil_text = :text, '
+        UpdateExpression='SET #todo_text = :text, '
                          'checked = :checked, '
                          'updatedAt = :updatedAt',
         ReturnValues='ALL_NEW',

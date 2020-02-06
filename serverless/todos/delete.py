@@ -1,16 +1,14 @@
 import os
-import json
 
-from toils import decimalencoder
 import boto3
 dynamodb = boto3.resource('dynamodb')
 
 
-def get(event, context):
+def delete(event, context):
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
 
-    # fetch toil from the database
-    result = table.get_item(
+    # delete the todo from the database
+    table.delete_item(
         Key={
             'id': event['pathParameters']['id']
         }
@@ -18,9 +16,7 @@ def get(event, context):
 
     # create a response
     response = {
-        "statusCode": 200,
-        "body": json.dumps(result['Item'],
-                           cls=decimalencoder.DecimalEncoder)
+        "statusCode": 200
     }
 
     return response

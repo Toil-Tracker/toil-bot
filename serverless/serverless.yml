@@ -1,4 +1,4 @@
-service: toil-tracker
+service: aws-python-rest-api-with-dynamodb
 
 frameworkVersion: ">=1.1.0 <2.0.0"
 
@@ -20,42 +20,42 @@ provider:
 
 functions:
   create:
-    handler: toils/create.create
+    handler: todos/create.create
     events:
       - http:
-          path: toils
+          path: todos
           method: post
           cors: true
 
   list:
-    handler: toils/list.list
+    handler: todos/list.list
     events:
       - http:
-          path: toils
+          path: todos
           method: get
           cors: true
 
   get:
-    handler: toils/get.get
+    handler: todos/get.get
     events:
       - http:
-          path: toils/{id}
+          path: todos/{id}
           method: get
           cors: true
 
   update:
-    handler: toils/update.update
+    handler: todos/update.update
     events:
       - http:
-          path: toils/{id}
+          path: todos/{id}
           method: put
           cors: true
 
   delete:
-    handler: toils/delete.delete
+    handler: todos/delete.delete
     events:
       - http:
-          path: toils/{id}
+          path: todos/{id}
           method: delete
           cors: true
 

@@ -1,7 +1,7 @@
 import json
 import os
 
-from toils import decimalencoder
+from todos import decimalencoder
 import boto3
 dynamodb = boto3.resource('dynamodb')
 
@@ -9,7 +9,7 @@ dynamodb = boto3.resource('dynamodb')
 def list(event, context):
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
 
-    # fetch all toils from the database
+    # fetch all todos from the database
     result = table.scan()
 
     # create a response
